@@ -1,0 +1,30 @@
+<div class="chat-icon" (click)="toggleChat()">
+  <span *ngIf="!isChatOpen">💬</span> <span *ngIf="isChatOpen">✖</span>  </div>
+
+<div class="chat-window" *ngIf="isChatOpen">
+  
+  <div class="chat-header">
+    <div>
+      <h3>AI Assistant</h3>
+      <p>Always active</p>
+    </div>
+    <button class="close-btn" (click)="toggleChat()">✖</button>
+  </div>
+
+  <div class="chat-body">
+    <div *ngFor="let msg of messages" [ngClass]="['message', msg.sender]">
+      {{ msg.text }}
+    </div>
+  </div>
+
+  <div class="chat-footer">
+    <input 
+      type="text" 
+      [(ngModel)]="userMessage" 
+      (keyup.enter)="sendMessage()" 
+      placeholder="Type a message..."
+    >
+    <button (click)="sendMessage()">Send</button>
+  </div>
+
+</div>

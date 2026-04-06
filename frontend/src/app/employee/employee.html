@@ -1,0 +1,78 @@
+<div class="container mt-4 px-5">
+    <div class="d-flex justify-content-between align-items-center mb-4" *ngIf="!Service.showform">
+        <div class="d-flex gap-2 w-50">
+            <div class="input-group custom-search">
+                <input type="text" class="form-control" placeholder="Search Employee by Name..." [(ngModel)]="searchText">
+                <button class="btn btn-search" type="button" (click)="onSearch()">
+                    <i class="bi bi-search"></i> View Details
+                </button>
+            </div>
+            <button type="button" class="btn btn-danger rounded-pill px-3" *ngIf="selectEmployee" (click)="onCloseSearch()">
+                <i class="bi bi-x-lg"></i> Close
+            </button>
+        </div>
+        <button *ngIf="isAdmin" class="btn btn-primary btn-add" (click)="onAdd()">
+            <i class="bi bi-plus-lg"></i> Add Employee
+        </button>
+    </div>
+
+    <div class="card employee-card shadow-sm p-4 mb-4 mx-auto" *ngIf="selectEmployee && !Service.showform" style="max-width: 1000px;">
+        <div class="d-flex align-items-center border-bottom pb-3 mb-3">
+            <div class="profile-icon me-3">
+                <i class="bi bi-person-badge"></i>
+            </div>
+            <h4 class="text-primary m-0">Employee Full Profile</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>ID:</strong> {{selectEmployee.id}}</p>
+                <p><strong>Name:</strong> {{selectEmployee.name}}</p>
+                <p><strong>Email:</strong> {{selectEmployee.email}}</p>
+            </div>
+            <div class="col-md-6 border-start-md">
+                <p><strong>Department:</strong> {{selectEmployee.department}}</p>
+                <p><strong>Salary:</strong> <span class="text-success fw-bold">₹{{selectEmployee.salary}}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center" *ngIf="!Service.showform">
+        <table class="table table-bordered shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Joining Date</th>
+                    <th *ngIf="isAdmin" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emp of employees">
+                    <ng-container *ngIf="!searchText || emp.name.toLowerCase().includes(searchText.toLowerCase())">
+                        <td>{{emp.id}}</td>
+                        <td (click)="onSelectEmployee(emp)" style="cursor: pointer;" class="text-dark fw-bold">
+                            {{emp.name}}
+                        </td>
+                        <td>{{emp.salary}}</td>
+                        <td>{{emp.email}}</td>
+                        <td>{{emp.department}}</td>
+                        <td>{{emp.joiningYear}}</td>
+                        <td *ngIf="isAdmin" class="text-center">
+                            <div class="d-flex justify-content-center gap-3">
+                                <button class="btn btn-warning btn-sm" (click)="onEdit(emp)">Edit</button>
+                                <button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp.id)">DELETE</button>
+                            </div>
+                        </td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="Service.showform">
+        <app-employee-added></app-employee-added>
+    </div>
+</div>

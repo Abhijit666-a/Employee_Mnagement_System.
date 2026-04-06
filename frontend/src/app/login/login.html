@@ -1,0 +1,46 @@
+<div class="login-wrapper">
+  <div class="header-section">
+    <h1 class="system-title">Employee Management System</h1>
+  </div>
+
+  <div class="card-container">
+    <div class="login-card">
+      <div class="card-header-content">
+        <i class="fas fa-user-alt"></i> 
+        <span class="header-text">Sign In</span>
+      </div>
+      
+      <hr class="divider" />
+
+      <form (ngSubmit)="ngLogin()">
+        <div class="form-group mb-3">
+          <label class="form-label">USERNAME</label>
+          <input type="text" class="form-control" [(ngModel)]="user.username" name="username" placeholder="Email" required />
+        </div>
+
+        <div class="form-group mb-2">
+          <label class="form-label">PASSWORD</label>
+          <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" required />
+        </div>
+
+        <div class="forgot-box mb-3">
+          <a routerLink="/reset" class="forgot-link">Forgot Password ?</a>
+        </div>
+
+        <button type="submit" class="btn btn-signin w-100">SIGN IN</button>
+
+        <div class="or-divider">
+          <span>OR</span>
+        </div>
+
+        <div class="social-login">
+          <div id="googleBtn" class="w-100 d-flex justify-content-center"></div>
+        </div>
+
+        <p class="text-center mt-3 signup-text">
+          Don't have an account? <a routerLink="/register" class="signup-link">Signup</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

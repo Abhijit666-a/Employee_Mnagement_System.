@@ -1,0 +1,59 @@
+<div class="container d-flex justify-content-center">
+    <div class="card shadow-lg p-4" style="width: 500px; border-radius: 15px;">
+        <h3 class="text-center mb-4 text-primary">Employee Details</h3>
+
+        <form>
+            <div class="mb-3">
+                <label class="form-label fw-bold">Name</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="employees.name"
+                    placeholder="Enter Name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Email</label>
+                <input type="text" class="form-control" name="email" [(ngModel)]="employees.email"
+                    placeholder="Enter Email">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Department</label>
+                <select class="form-select custom-select" name="department" [(ngModel)]="employees.department">
+                    <option value="" disabled selected>Select Department</option>
+                    <option value="HR">HR</option>
+                    <option value="IT">IT</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Administration">Administration</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold">Joining Year</label>
+                <input type="number" class="form-control" name="joiningYear" [(ngModel)]="employees.joiningYear"
+                    placeholder="example:2026" required>
+            </div>
+            <div class="mb-4">
+                <label class="form-label fw-bold">Salary</label>
+                <input type="number" class="form-control" name="salary" [(ngModel)]="employees.salary"
+                    placeholder="Enter Salary">
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold">Project Status</label>
+                <option value="Finance">Finance</option>
+
+                <select class="form-select" name="onProject" [(ngModel)]="employees.onProject">
+                    <option [ngValue]="true">Working (On Project)</option>
+                    <option [ngValue]="false">Idle (No Project)</option>
+                </select>
+            </div>
+            <div class="d-flex gap-3 mt-3">
+                <button type="button" class="btn btn-success flex-grow-1" (click)="ngSave()">
+                    Save Employee
+                </button>
+                <button type="button" class="btn btn-danger flex-grow-1" (click)="onClose()">
+                    Close
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

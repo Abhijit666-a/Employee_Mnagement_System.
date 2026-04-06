@@ -1,0 +1,80 @@
+.login-wrapper {
+  height: 90.3vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #009688 50%, #e0e0e0 50%);
+  overflow: hidden;
+}
+
+.header-section {
+  flex: 0.4; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.system-title {
+  color: white;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.card-container {
+  flex: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px; 
+}
+
+.login-card {
+  background: white;
+  width: 350px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  margin-top: -30px; 
+}
+
+.forgot-link {
+  color: #000000 !important; 
+  text-decoration: none !important;
+  font-size: 0.85rem;
+}
+
+.forgot-link:hover {
+  color: #333333 !important;
+  text-decoration: none !important;
+}
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0;
+  color: #888;
+}
+
+.or-divider::before, .or-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #eee;
+}
+
+.or-divider span { padding: 0 10px; font-size: 0.8rem; }
+
+.btn-signin {
+  background-color: #009688;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+}
+.signup-link {
+    color: #009688;
+    text-decoration: none;
+    font-weight: bold;
+}

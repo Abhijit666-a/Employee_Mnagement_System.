@@ -1,0 +1,53 @@
+<div class="login-wrapper">
+    <div class="header-section">
+        <h1 class="system-title">Employee Management System</h1>
+    </div>
+
+    <div class="card-container">
+        <div class="login-card">
+            <div class="card-header-content">
+                <i class="fas fa-user-plus"></i>
+                <span class="header-text">Create Account</span>
+            </div>
+
+            <hr class="divider" />
+
+            <form [formGroup]="Form" (ngSubmit)="ngSignup()">
+                <div class="form-group mb-2">
+                    <label class="form-label">USERNAME*</label>
+                    <input type="text" class="form-control" formControlName="username" placeholder="Enter Username" />
+                    <div *ngIf="Form.controls.username.invalid && Form.controls.username.touched"
+                        class="text-danger small-error">
+                        Username is not valid.
+                    </div>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label class="form-label">EMAIL*</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter Email" />
+                    <div *ngIf="Form.controls.email.invalid && Form.controls.email.touched"
+                        class="text-danger small-error">
+                        Email is required in correct format.
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">PASSWORD*</label>
+                    <input type="password" class="form-control" formControlName="password"
+                        placeholder="Enter Password" />
+                    <div *ngIf="Form.controls.password.invalid && Form.controls.password.touched"
+                        class="text-danger small-error">
+                        Minimum 8 characters required.
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-signin w-100" [disabled]="Form.invalid">SIGN UP</button>
+
+                <p class="text-center mt-3 signup-text">
+                    Already have an account?
+                    <a routerLink="/login" class="signup-link">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

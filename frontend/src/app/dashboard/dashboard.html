@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="label">Total Employees</span>
+      <span class="value">{{ totalEmp }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">Working on Projects</span>
+      <span class="value">{{ workingOnProject }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">New Joining (2026)</span>
+      <span class="value">{{ newEmp2026 }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">Departments</span>
+      <span class="value">{{ totalDepts }}</span>
+    </div>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-item">
+      <p class="chart-heading">YEARLY GROWTH</p>
+      <apx-chart *ngIf="growthChart" [series]="growthChart.series" [chart]="growthChart.chart" [xaxis]="growthChart.xaxis" [theme]="growthChart.theme" [colors]="growthChart.colors"></apx-chart>
+    </div>
+    <div class="chart-item">
+      <p class="chart-heading">DEPT DISTRIBUTION</p>
+      <apx-chart *ngIf="deptChart" [series]="deptChart.series" [chart]="deptChart.chart" [labels]="deptChart.labels" [theme]="deptChart.theme" [colors]="deptChart.colors"></apx-chart>
+    </div>
+    <div class="chart-item">
+      <p class="chart-heading">PROJECT STATUS</p>
+      <apx-chart *ngIf="projectChart" [series]="projectChart.series" [chart]="projectChart.chart" [labels]="projectChart.labels" [theme]="projectChart.theme" [colors]="projectChart.colors"></apx-chart>
+    </div>
+    <div class="chart-item">
+      <p class="chart-heading">AVG SALARY BY DEPT</p>
+      <apx-chart *ngIf="salaryChart" [series]="salaryChart.series" [chart]="salaryChart.chart" [xaxis]="salaryChart.xaxis" [theme]="salaryChart.theme" [colors]="salaryChart.colors"></apx-chart>
+    </div>
+  </div>
+</div>

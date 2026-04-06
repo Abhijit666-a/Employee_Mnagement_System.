@@ -1,0 +1,138 @@
+/* १. चॅट आइकॉन (Floating Button) - जो नेहमी उजव्या कोपऱ्यात दिसेल */
+.chat-icon {
+  position: fixed; /* पेज स्क्रोल केले तरीही हे बटन जागेवरच राहील */
+  bottom: 20px;    /* खालून २० पिक्सेल जागा */
+  right: 20px;     /* उजवीकडून २० पिक्सेल जागा */
+  width: 60px;
+  height: 60px;
+  background-color: #007bff; /* निळा रंग (तुमच्या स्क्रीनशॉटनुसार) */
+  border-radius: 50%; /* गोल बटन */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* सावली (Shadow) */
+  z-index: 1000; /* हे बटन इतर सर्व गोष्टींच्या वर दिसेल */
+  transition: transform 0.3s ease; /* क्लिक केल्यावर ॲनिमेशन */
+}
+
+.chat-icon:hover {
+  transform: scale(1.1); /* माऊस नेल्यावर बटन थोडे मोठे होईल */
+}
+
+/* २. चॅट विंडो (जेव्हा चॅट ओपन असेल) */
+.chat-window {
+  position: fixed; /* ही विंडो सुद्धा एकाच जागी स्थिर राहील */
+  bottom: 90px;    /* आइकॉनच्या थोडे वर (२० + ६० + १० = ९०px) */
+  right: 20px;     /* उजवीकडून २० पिक्सेल जागा */
+  width: 350px;    /* विंडोची रुंदी */
+  height: 500px;   /* विंडोची उंची */
+  background-color: white;
+  border-radius: 15px; /* कोपरे गोल */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* मोठी सावली */
+  display: flex;
+  flex-direction: column; /* हेडर, बॉडी आणि फुटर एकाखाली एक */
+  overflow: hidden; /* कोपऱ्याच्या बाहेर जाणारा भाग लपवण्यासाठी */
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out; /* विंडो उघडतानाचे ॲनिमेशन */
+}
+
+/* ३. चॅट हेडर (वरचा निळा भाग) */
+.chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.chat-header p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ४. चॅट बॉडी (मेसेजेस दाखवण्याचा भाग) */
+.chat-body {
+  flex: 1; /* उरलेली सर्व उंची या भागाला मिळेल */
+  padding: 15px;
+  overflow-y: auto; /* मेसेजेस जास्त झाल्यास स्क्रोल बार येईल */
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ५. मेसेज स्टाईल (युजर आणि AI चे मेसेजेस) */
+.message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* युजरचा मेसेज (उजव्या बाजूला, निळा) */
+.message.user {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+/* AI चे उत्तर (डाव्या बाजूला, राखाडी) */
+.message.ai {
+  align-self: flex-start;
+  background-color: #e9ecef;
+  color: #333;
+  border-bottom-left-radius: 2px;
+}
+
+/* ६. चॅट फुटर (इनपुट बॉक्स आणि सेंड बटन) */
+.chat-footer {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 10px;
+  background: white;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+}
+
+.chat-footer button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* विंडो उघडतानाचे ॲनिमेशन */
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
