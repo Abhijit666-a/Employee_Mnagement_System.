@@ -9,7 +9,7 @@ import com.google.genai.Client;
 
 import com.google.genai.types.GenerateContentResponse;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 public class aicontroller {
 	@Autowired
