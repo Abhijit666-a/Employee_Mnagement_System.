@@ -88,7 +88,6 @@ public class Employe {
 	}
 
 	public Object getPassword() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
