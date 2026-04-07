@@ -8,7 +8,7 @@ import { userregister } from '../userregister';
 })
 export class UserService {
 
-  private appurl = "https://employee-mnagement-system-qrbr.onrender.com/api/v1";
+ private appurl = "https://employee-mnagement-system-qrbr.onrender.com/";
   constructor(private http: HttpClient) { }
 
   ngsingup(users: userregister) {

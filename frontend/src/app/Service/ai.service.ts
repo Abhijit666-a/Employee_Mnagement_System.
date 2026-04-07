@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AiService {
-  private apiUrl = "https://employee-mnagement-system-qrbr.onrender.com/api/v1/employees";
+  private apiUrl = "https://employee-mnagement-system-qrbr.onrender.com/employees";
   constructor(private http: HttpClient) { }
 
   postAiMessage(prompt: string): Observable<string> {

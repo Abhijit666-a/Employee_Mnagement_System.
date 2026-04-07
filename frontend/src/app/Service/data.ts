@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class Data {
   showform: boolean = false;
-  private appurl = "https://employee-mnagement-system-qrbr.onrender.com/api/v1/employees";
+  private appurl = "https://employee-mnagement-system-qrbr.onrender.com/employees";
   constructor(private http: HttpClient) { }
   selectEmployee: any = null;
   getEmployee(employees?: Employee[]) {
